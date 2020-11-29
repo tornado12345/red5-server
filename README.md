@@ -14,12 +14,6 @@ Red5 is an Open Source Flash Server written in Java that supports:
  * Live Stream Publishing
  * Remoting
  * Protocols: RTMP, RTMPT, RTMPS, and RTMPE
-  
-Additional features supported via plugin:
- 
- * [WebSocket (ws and wss)](https://github.com/Red5/red5-websocket)
- * [RTSP (From Axis-type cameras)](https://github.com/Red5/red5-rtsp-restreamer)
- * [HLS](https://github.com/Red5/red5-hls-plugin)
 
 The Red5 users list may be found here: [red5interest](https://groups.google.com/forum/#!forum/red5interest)
 
@@ -69,6 +63,8 @@ in addition to any other Red5 projects in the __dependencies__ section
 
 ## Build from Source
 
+As of release 1.2.2 the target JDK is now JDK 11 and the Maven poms use the [toolchain plugin](https://maven.apache.org/guides/mini/guide-using-toolchains.html).
+
 To build the red5 jars, execute the following on the command line:
 ```sh
 mvn -Dmaven.test.skip=true install
@@ -95,10 +91,18 @@ mvn eclipse:eclipse
 4. Now the project will build automatically, if you have the maven plugin installed.
 
 [Screencast](http://screencast.com/t/2sgjMevf9)
-
+  
+Features supported via plugin (These are mostly deprecated):
+ * [WebSocket (ws and wss)](https://github.com/Red5/red5-websocket)
+ * [RTSP (From Axis-type cameras)](https://github.com/Red5/red5-rtsp-restreamer)
+ * [HLS](https://github.com/Red5/red5-hls-plugin)
+ 
 # Older Releases
 The artifacts for the following releases are no longer available; if your project requires them, you'll have to build them from source. The listings are here only for historical purposes.
 
+ * [Red5 1.2.2 Release](https://github.com/Red5/red5-server/releases/tag/v1.2.2-RELEASE) (5 September 2019)
+ * [Red5 1.1.1 Release](https://github.com/Red5/red5-server/releases/tag/v1.1.1-RELEASE) (29 May 2019)
+ * [Red5 1.1.0 Release](https://github.com/Red5/red5-server/releases/tag/v1.1.0-RELEASE) (22 April 2019)
  * [Red5 1.0.10 Release](https://github.com/Red5/red5-server/releases/tag/v1.0.10-RELEASE) (9 February 2019)
  * [Red5 1.0.9 Release](https://github.com/Red5/red5-server/releases/tag/v1.0.9-RELEASE) (11 June 2017)
  * [Red5 1.0.8 Release](https://github.com/Red5/red5-server/releases/tag/v1.0.8-RELEASE) (23 December 2016)

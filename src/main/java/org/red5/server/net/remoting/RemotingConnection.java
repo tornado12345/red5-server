@@ -1,19 +1,8 @@
 /*
- * RED5 Open Source Media Server - https://github.com/Red5/
- * 
- * Copyright 2006-2016 by respective authors (see below). All rights reserved.
- * 
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * RED5 Open Source Media Server - https://github.com/Red5/ Copyright 2006-2016 by respective authors (see below). All rights reserved. Licensed under the Apache License, Version
+ * 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless
+ * required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+ * either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
 package org.red5.server.net.remoting;
@@ -47,7 +36,8 @@ import org.red5.server.net.remoting.message.RemotingPacket;
 import org.red5.server.net.servlet.ServletUtils;
 
 /**
- * Connection class so the Red5 object works in methods invoked through remoting. Attributes are stored in the session of the implementing servlet container.
+ * Connection class so the Red5 object works in methods invoked through remoting. Attributes are stored in the session of the implementing
+ * servlet container.
  * 
  * @author The Red5 Project
  * @author Joachim Bauch (jojo@struktur.de)
@@ -396,8 +386,12 @@ public class RemotingConnection implements IRemotingConnection {
         if (name == null) {
             return null;
         }
-
         return session.getAttribute(name);
+    }
+
+    @Override
+    public Object getAttribute(Enum<?> enm) {
+        return getAttribute(enm.name());
     }
 
     /** {@inheritDoc} */
@@ -451,6 +445,11 @@ public class RemotingConnection implements IRemotingConnection {
         return (getAttribute(name) != null);
     }
 
+    @Override
+    public boolean hasAttribute(Enum<?> enm) {
+        return hasAttribute(enm.name());
+    }
+
     /** {@inheritDoc} */
     public boolean removeAttribute(String name) {
         if (name == null) {
@@ -464,6 +463,11 @@ public class RemotingConnection implements IRemotingConnection {
             session.removeAttribute(name);
         }
         return true;
+    }
+
+    @Override
+    public boolean removeAttribute(Enum<?> enm) {
+        return removeAttribute(enm.name());
     }
 
     /** {@inheritDoc} */
@@ -494,6 +498,11 @@ public class RemotingConnection implements IRemotingConnection {
             session.setAttribute(name, value);
         }
         return true;
+    }
+
+    @Override
+    public boolean setAttribute(Enum<?> enm, Object value) {
+        return setAttribute(enm.name(), value);
     }
 
     /** {@inheritDoc} */
